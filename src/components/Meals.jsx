@@ -1,9 +1,17 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Meal from './Meal';
 
 const Meals = () => {
+    const {meals} = useLoaderData();
     return (
         <div>
-            <h1>this is meals</h1>
+            {
+                meals.map(meal => <Meal
+                key={meal.idMeal}
+                meal={meal}
+                ></Meal>)
+            }
         </div>
     );
 };
