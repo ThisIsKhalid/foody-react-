@@ -1,10 +1,11 @@
+import { RouterProvider } from "react-router-dom";
+import router from "./Route/Route";
 
 function App() {
   return (
     <div>
-      <h1>Heloon</h1>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
-
 export default App;
