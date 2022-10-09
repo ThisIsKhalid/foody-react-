@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import About from "../components/About";
 import Home from "../components/Home";
 import Layout from "../components/Layout";
-import Meals from "../components/Meals";
+import MealsCategories from "../components/MealsCategories";
 
 
 
@@ -13,17 +13,22 @@ const router = createBrowserRouter([
         element: <Layout></Layout>,
         children: [
             {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
                 path: 'home',
                 element: <Home></Home>
+            },
+            {
+                path: 'meals',
+                loader: () => fetch('https://www.themealdb.com/api/json/v1/1/categories.php'),
+                element: <MealsCategories></MealsCategories>
             },
             {
                 path: 'about',
                 element: <About></About>
             },
-            {
-                path: 'meals',
-                element: <Meals></Meals>
-            }
         ]
     }
 ])
